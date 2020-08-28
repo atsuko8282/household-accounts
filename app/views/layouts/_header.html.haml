@@ -1,0 +1,9 @@
+%header
+  %h1
+    家計簿
+    = image_tag '/images/coinpurse.png', alt: 'icon', height: '40', width: '41.6'
+  %ul.nav
+    %li= link_to "今月の収支", root_path
+    %li= link_to "支出を入力", new_expend_path
+    %li= link_to "収入を入力", new_income_path
+    %li= link_to "月別収支を見る", months_path

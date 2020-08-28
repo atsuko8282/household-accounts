@@ -1,0 +1,28 @@
+#ExpendRegister
+  %h2
+    支出を入力する
+  = form_with model: @expend, method: :post, class: "Formarea", local: true do |form|
+    -# %dl.Formarea__date
+    -#   %dt
+    -#     日付
+    -#   %dd
+    -#     = form.text_field :date
+    %dl.Formarea__subject
+      %dt
+        カテゴリ
+      %dd
+        = form.text_field :subject
+    %dl.Formarea__memo
+      %dt
+        メモ
+      %dd
+        = form.text_field :memo
+    %dl.Formarea__money
+      %dt
+        金額
+      %dd
+        = form.text_field :money, placeholder: "半角数字で入力"
+    .Formarea__btn
+      = form.submit '保存する', class: "submitbtn"
+.copy
+  Household Accounts

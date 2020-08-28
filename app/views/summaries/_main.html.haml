@@ -1,0 +1,96 @@
+.result
+  %h2.year-month 2020年8月
+  %dl.result__income
+    %dt 収入合計
+    %dd= "#{@total_incomes.to_s(:delimited, delimiter: ',')}円"
+  %dl.result__expend
+    %dt 支出合計
+    %dd= "#{@total_expends.to_s(:delimited, delimiter: ',')}円"
+  %dl.result__balance
+    %dt 今月の残高
+    %dd.bal= "#{@balance.to_s(:delimited, delimiter: ',')}円"
+-# .result
+-#   %h2.year-month 2020年8月
+-#   %dl.result__income
+-#     %dt 収入合計
+-#     %dd 20,000円
+-#   %dl.result__expend
+-#     %dt 支出合計
+-#     %dd 10,000円
+-#   %dl.result__balance
+-#     %dt 今月の残高
+-#     %dd.bal 10,000円
+.expend
+  %h2.title
+    支出の一覧
+  - @expends_month.each do |expend|
+    .expend__detail
+      %ul
+        %li.date= expend.created_at.strftime("%F")
+        %li.subject= expend.subject
+        %li.memo= expend.memo
+        - e_money = expend.money.to_s(:delimited, delimiter: ',')
+        %li.money= "#{e_money}円"
+  .expend__detail
+    %ul
+      %li.date
+        8月26日
+      %li.subject
+        食費
+      %li.memo
+        ランチ
+      %li.money
+        1,000円
+  .expend__detail
+    %ul
+      %li.date
+        8月20日
+      %li.subject
+        住居費
+      %li.memo
+        家賃
+      %li.money
+        60,000円
+  .expend__detail
+    %ul
+      %li.date
+        8月10日
+      %li.subject
+        その他
+      %li.memo
+        病院
+      %li.money
+        2,000円
+.income
+  %h2.title
+    収入の一覧
+  - @incomes_month.each do |income|
+    .income__detail
+      %ul
+        %li.date= income.created_at.strftime("%F")
+        %li.subject= income.subject
+        %li.memo= income.memo
+        - i_money = income.money.to_s(:delimited, delimiter: ',')
+        %li.money= "#{i_money}円"
+  .income__detail
+    %ul
+      %li.date
+        8月22日
+      %li.subject
+        臨時
+      %li.memo
+        フリマ
+      %li.money
+        5,000円
+  .income__detail
+    %ul
+      %li.date
+        8月1日
+      %li.subject
+        給与
+      %li.memo
+        -
+      %li.money
+        250,000円
+.copy
+  Household Accounts
